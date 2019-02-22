@@ -30,6 +30,14 @@ namespace ChatApp.UnitTests
             ViewDataDictionary viewData = result.ViewData;
             NUnit.Framework.Assert.AreEqual("hello, i am about ", viewData["Message"]);
         }
+        // czy widok nie jest nullem
+        [TestMethod]
+        public void About_IsNotNull_ReturnsTrue()
+        {
+            HomeController controller = new HomeController();
+            ViewResult result = controller.About() as ViewResult;
+            NUnit.Framework.Assert.AreNotEqual(null, result.ViewName);
+        }
 
 
         [TestMethod]
@@ -51,6 +59,14 @@ namespace ChatApp.UnitTests
         }
 
         [TestMethod]
+        public void Index_IsNotNull_ReturnsTrue()
+        {
+            HomeController controller = new HomeController();
+            ViewResult result = controller.Index() as ViewResult;
+            NUnit.Framework.Assert.AreNotEqual(null, result.ViewName);
+        }
+
+        [TestMethod]
         public void Chat_ReturnsRightView_ReturnsTrue()
         {
             HomeController controller = new HomeController();
@@ -66,6 +82,14 @@ namespace ChatApp.UnitTests
             ViewResult result = controller.Chat() as ViewResult;
             ViewDataDictionary viewData = result.ViewData;
             NUnit.Framework.Assert.AreEqual("hello, i am chat ", viewData["Message"]);
+        }
+
+        [TestMethod]
+        public void Chat_IsNotNull_ReturnsTrue()
+        {
+            HomeController controller = new HomeController();
+            ViewResult result = controller.Chat() as ViewResult;
+            NUnit.Framework.Assert.AreNotEqual(null, result.ViewName);
         }
 
         //[TestMethod]
@@ -97,5 +121,7 @@ namespace ChatApp.UnitTests
             NUnit.Framework.Assert.IsNotNull(result);
             NUnit.Framework.Assert.AreEqual("Index", result.RouteValues["action"]);
         }
+
+        
     }
 }
