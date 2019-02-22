@@ -10,26 +10,29 @@ namespace ChatApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Message = "hello, i am index ";
+            return View("Index");
         }
 
         public ActionResult Chat()
         {
+            ViewBag.Message = "hello, i am chat ";
             return View("ChatView");
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = " ";
+            ViewBag.Message = "hello, i am about ";
 
-            return View();
+            return View("About");
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = " ";
+            //ViewBag.Message = "hello, i am contact ";
 
-            return View();
+            //return View("Contact");
+            return RedirectToAction("Index");
         }
     }
 }
